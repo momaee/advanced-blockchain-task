@@ -10,10 +10,14 @@ $ docker-compose up -d
 $ make
 
 # run project
-$ go run .
+$ go run . 
+or 
+$ ./micro
 
 #help
 $ go run . -h
+or 
+$ ./micro -h
 
 # rest api port
 8080
