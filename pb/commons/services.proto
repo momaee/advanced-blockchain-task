@@ -10,7 +10,7 @@ import "google/api/annotations.proto";
 service Backend {
   rpc GetSupplies(backend_task.api.commons.Request) returns (backend_task.api.commons.Response) {
     option (google.api.http) = {
-      post: "/backend_task/suplies"
+      post: "/backend_task/supplies"
       body: "*"
     };
   }

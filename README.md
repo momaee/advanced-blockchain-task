@@ -22,7 +22,7 @@ $ go run . -h
 50051
 
 # api url
-POST http://localhost:8080/backend_task/suplies
+POST http://localhost:8080/backend_task/supplies
 Body example:
 {
     "contractAddress":"0x70e36f6BF80a52b3B46b3aF8e106CC0ed743e8e4"

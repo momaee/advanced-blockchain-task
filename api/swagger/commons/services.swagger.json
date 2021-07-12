@@ -16,7 +16,7 @@
     "application/json"
   ],
   "paths": {
-    "/backend_task/suplies": {
+    "/backend_task/supplies": {
       "post": {
         "operationId": "Backend_GetSupplies",
         "responses": {
