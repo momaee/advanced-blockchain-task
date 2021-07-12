@@ -7,11 +7,9 @@ import (
 	"time"
 
 	"github.com/go-redis/redis/v8"
-	"go.uber.org/zap"
 )
 
 var (
-	logger  *zap.Logger
 	once    sync.Once
 	Storage Redis = &rds{id: 0}
 )
@@ -24,6 +22,7 @@ type Redis interface {
 	Get(ctx context.Context, key string, dest interface{}) error
 	Del(ctx context.Context, key ...string) error
 	setClient(client *redis.Client)
+	FlushAll(ctx context.Context) *redis.StatusCmd
 }
 
 // rds struct for redis client

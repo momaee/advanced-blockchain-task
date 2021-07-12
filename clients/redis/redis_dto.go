@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"github.com/go-redis/redis/v8"
+	"github.com/logrusorgru/aurora"
 )
 
 // Connect, method for connect to redis
@@ -25,6 +26,7 @@ func (r *rds) Connect(confs *conf.AppConfig) error {
 		})
 
 		if err = r.db.Ping(context.Background()).Err(); err != nil {
+			fmt.Println(aurora.Red("ping error"), err)
 		}
 	})
 
@@ -70,4 +72,9 @@ func (r *rds) Del(ctx context.Context, key ...string) error {
 	}
 	return nil
 
+}
+
+// Del for delete keys in redis
+func (r *rds) FlushAll(ctx context.Context) *redis.StatusCmd {
+	return r.db.FlushAll(ctx)
 }

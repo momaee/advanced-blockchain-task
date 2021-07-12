@@ -7,6 +7,7 @@ import (
 	"math/big"
 	"time"
 
+	"backend_task/clients/redis"
 	"backend_task/clients/the_graph"
 	"backend_task/domain/ethereum/repository"
 
@@ -53,6 +54,13 @@ func (e *eth) fetchMarkets() error {
 	for _, market := range markets {
 		e.markets = append(e.markets, common.HexToAddress(market.Id))
 	}
+
+	db, err := redis.Storage.GetDB()
+	if err != nil {
+		return err
+	}
+	db.FlushAll(e.ctx)
+
 	return nil
 }
 
@@ -66,30 +74,6 @@ func (e *eth) connect() error {
 	fmt.Printf("%s connected to geth client.\n", aurora.Green(html.UnescapeString("&#x2705;")))
 	return nil
 }
-
-// func (e *eth) FetchFromNetwork() error {
-// 	if err := e.connect(); err != nil {
-// 		return err
-// 	}
-
-// 	query := ethereum.FilterQuery{
-// 		FromBlock: big.NewInt(12800000),
-// 		Topics: [][]common.Hash{
-// 			{repository.MINT, repository.REDEEM},
-// 		},
-// 		Addresses: []common.Address{repository.CETH},
-// 	}
-
-// 	logs, err := e.FilterLogs(context.Background(), query)
-// 	if err != nil {
-// 		return err
-// 	}
-
-// 	for _, vLog := range logs {
-// 		fmt.Println("log", vLog)
-// 	}
-// 	return nil
-// }
 
 func (e *eth) ListenToEvents() error {
 	if err := e.connect(); err != nil {
