@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package backend_task.api.commons;
+
+option go_package = "backend_task/api/pb/commons;commons";
+
+import "commons/messages.proto";
+import "google/api/annotations.proto";
+
+service Backend {
+  rpc GetSupplies(backend_task.api.commons.Request) returns (backend_task.api.commons.Response) {
+    option (google.api.http) = {
+      post: "/backend_task/suplies"
+      body: "*"
+    };
+  }
+}

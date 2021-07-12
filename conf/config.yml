@@ -1,0 +1,19 @@
+server:
+  grpc:
+    host: 0.0.0.0
+    port: 50051
+  rest:
+    host: 0.0.0.0
+    port: 8080
+client:
+  redis:
+    host: redis
+    port: 7379
+    user:
+    password:
+  postgres:
+    host: postgres
+    port: 6432
+    user: postgres
+    password: changeme
+    database: fiat_gw

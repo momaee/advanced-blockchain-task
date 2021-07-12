@@ -1,0 +1,12 @@
+version: "3.9"
+
+services: 
+    # -----------------------------
+    # redis database
+    # -----------------------------
+    redis:
+        hostname: redis
+        container_name: backend_task_redis
+        image: redis:latest
+        ports:
+            - "7379:6379"

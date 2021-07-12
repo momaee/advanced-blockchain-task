@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package backend_task.api.commons;
+
+option go_package = "backend_task/api/pb/commons;commons";
+
+message Request {
+  string contractAddress = 1;
+}
+
+message Response {
+  repeated HourlySupply supplies =1;
+}
+
+message HourlySupply {
+  int64 timestamp = 1;
+  string totalSupply = 2;
+}
