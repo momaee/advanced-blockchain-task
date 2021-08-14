@@ -6,6 +6,5 @@ steps:
   - name: test
     image: golang:1.16
     commands:
-      - echo ${TEST_ENV}
-      - echo ${DRONE_GITHUB_CLIENT_ID}
-      - echo ${DRONE_SERVER_PROTO}
+      - go run .
+      
