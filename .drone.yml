@@ -12,6 +12,9 @@ steps:
       - echo {{TEST_ENV}}
       - echo ${GITHUB_SHA}
       - echo $GITHUB_SHA
-      - echo GITHUB_SHA
       - echo {{GITHUB_SHA}}
+      - echo ${DRONE_GIT_USERNAME}
+      - echo $DRONE_GIT_USERNAME
+      - echo {{DRONE_GIT_USERNAME}}
+      
 
