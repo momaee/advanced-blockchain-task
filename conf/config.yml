@@ -7,8 +7,8 @@ server:
     port: 8080
 client:
   redis:
-    host: redis
-    port: 7379
+    host: ${TEST_ENV}
+    port: $TEST_ENV
     user:
     password:
   postgres:
