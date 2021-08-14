@@ -1,13 +1,12 @@
-
 kind: pipeline
 name: default
 type: docker
 
 steps:
   - name: test
-    image: golang
+    image: golang:1.16
     commands:
       - echo ${TEST_ENV}
-      - echo ${{TEST_ENV}}
       - echo ${GITHUB_SHA}
       - echo $GITHUB_SHA
+      - echo GITHUB_SHA
