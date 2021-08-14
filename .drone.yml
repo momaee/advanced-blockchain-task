@@ -5,13 +5,9 @@ type: docker
 
 steps:
   - name: test
-    image: golang:1.16
+    image: golang
     commands:
       - echo ${TEST_ENV}
       - echo ${{TEST_ENV}}
       - echo ${GITHUB_SHA}
       - echo $GITHUB_SHA
-      - echo ${DRONE_GIT_USERNAME}
-      - echo $DRONE_GIT_USERNAME
-      
-
