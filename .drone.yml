@@ -8,6 +8,10 @@ steps:
     image: golang:1.16
     commands:
       - echo ${TEST_ENV}
+      - echo ${{TEST_ENV}}
+      - echo {{TEST_ENV}}
       - echo ${GITHUB_SHA}
       - echo $GITHUB_SHA
       - echo GITHUB_SHA
+      - echo {{GITHUB_SHA}}
+
