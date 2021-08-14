@@ -7,7 +7,7 @@ server:
     port: 8080
 client:
   redis:
-    host: {TEST_ENV}
+    host: ${TEST_ENV}
     port: 32423
     user:
     password:
